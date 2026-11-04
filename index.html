@@ -193,6 +193,131 @@
       letter-spacing: 0.02em;
     }
 
+    /* =========================================================
+       Blumenwiese im Hintergrund
+       Jede Form sitzt per --x / --y (Mittelpunkt in % des Fensters).
+       --s steuert die Größe, --r die Drehung.
+       ========================================================= */
+    :root {
+      --grund:    #e9e3de;
+      --rot:      #cb3e32;
+      --rosa:     #f2bccb;
+      --gelb:     #f2dc68;
+      --blau:     #3443b4;
+      --hellblau: #a9b2d2;
+      --eisblau:  #e1e8f6;
+      --gruen:    #5b8450;
+      --weiss:    #ffffff;
+    }
+
+    body {
+      background: var(--grund);
+    }
+
+    .wiese {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .wiese > * {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: calc(var(--s) * 0.5vmax);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+    }
+
+    .blume i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: var(--pw);
+      height: var(--ph);
+      border-radius: var(--pr, 50%);
+      background: var(--blatt);
+      transform-origin: 50% 100%;
+      transform: translate(-50%, -100%) rotate(calc(var(--i) * 360deg / var(--n)));
+    }
+
+    .blume::after {
+      content: "";
+      position: absolute;
+      inset: calc(50% - var(--m) / 2);
+      border-radius: 50%;
+      background: var(--mitte);
+    }
+
+    .blume i:nth-child(1)  { --i: 0; }
+    .blume i:nth-child(2)  { --i: 1; }
+    .blume i:nth-child(3)  { --i: 2; }
+    .blume i:nth-child(4)  { --i: 3; }
+    .blume i:nth-child(5)  { --i: 4; }
+    .blume i:nth-child(6)  { --i: 5; }
+    .blume i:nth-child(7)  { --i: 6; }
+    .blume i:nth-child(8)  { --i: 7; }
+    .blume i:nth-child(9)  { --i: 8; }
+    .blume i:nth-child(10) { --i: 9; }
+    .blume i:nth-child(11) { --i: 10; }
+    .blume i:nth-child(12) { --i: 11; }
+
+    .bluete {
+      --n: 5; --pw: 42%; --ph: 50%; --m: 32%;
+      --blatt: var(--rot); --mitte: var(--rosa);
+    }
+    .bluete.rosa  { --blatt: var(--rosa); --mitte: var(--rot); --m: 44%; }
+    .bluete.klein { --blatt: var(--hellblau); --mitte: var(--eisblau); --m: 12%; }
+
+    .stern {
+      --n: 12; --pw: 15%; --ph: 48%; --pr: 50% / 60%; --m: 18%;
+      --blatt: var(--blau); --mitte: var(--hellblau);
+    }
+
+    .margerite {
+      --n: 9; --pw: 18%; --ph: 50%; --pr: 999px; --m: 38%;
+      --blatt: var(--weiss); --mitte: var(--gelb);
+    }
+
+    .sonne {
+      background: var(--rot);
+      border-radius: 3%;
+    }
+    .sonne::before,
+    .sonne::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--rot);
+      transform: rotate(30deg);
+    }
+    .sonne::after {
+      transform: rotate(60deg);
+      background: radial-gradient(circle closest-side, var(--gelb) 76%, var(--rot) 77%);
+    }
+
+    .wiese > .blatt {
+      aspect-ratio: 1 / 2.4;
+      border-radius: 100% 0;
+      background: var(--gruen);
+    }
+    .wiese > .stiel {
+      aspect-ratio: 1 / 16;
+      border-radius: 999px;
+      background: var(--gruen);
+    }
+
+    /* Visitenkarte liegt über den Blumen */
+    .card {
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 2px 6px rgba(44, 42, 40, 0.10),
+                  0 16px 40px rgba(44, 42, 40, 0.14);
+    }
+
     @media (max-width: 480px) {
       .card-inner {
         padding: 1.75rem 1.5rem 1.5rem;
@@ -213,6 +338,39 @@
   </style>
 </head>
 <body>
+  <div class="wiese" aria-hidden="true">
+    <div class="stiel" style="--x:22%; --y:60%; --s:2.4; --r:-8deg"></div>
+    <div class="blatt" style="--x:9%;  --y:72%; --s:13; --r:-18deg"></div>
+    <div class="blatt" style="--x:32%; --y:46%; --s:11; --r:38deg"></div>
+    <div class="stiel" style="--x:78%; --y:44%; --s:2.4; --r:6deg"></div>
+    <div class="blatt" style="--x:91%; --y:38%; --s:12; --r:18deg"></div>
+    <div class="blatt" style="--x:70%; --y:72%; --s:11; --r:-35deg"></div>
+    <div class="blatt" style="--x:93%; --y:77%; --s:11; --r:25deg"></div>
+    <div class="blatt" style="--x:4%;  --y:88%; --s:10; --r:-5deg"></div>
+
+    <div class="blume margerite" style="--x:50%; --y:6%; --s:54; --r:4deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete rosa" style="--x:13%; --y:12%; --s:34; --r:-12deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete" style="--x:85%; --y:8%; --s:24; --r:10deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete" style="--x:76%; --y:20%; --s:15; --r:30deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete klein" style="--x:5%; --y:25%; --s:10"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <div class="sonne" style="--x:17%; --y:35%; --s:30; --r:8deg"></div>
+    <div class="blume bluete rosa" style="--x:60%; --y:30%; --s:28; --r:15deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete klein" style="--x:92%; --y:29%; --s:11; --r:20deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete klein" style="--x:84%; --y:45%; --s:16; --r:-10deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete klein" style="--x:9%; --y:51%; --s:16; --r:12deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume stern" style="--x:58%; --y:51%; --s:44; --r:8deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume stern" style="--x:27%; --y:60%; --s:34; --r:-5deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="sonne" style="--x:86%; --y:61%; --s:26; --r:-12deg"></div>
+    <div class="blume stern" style="--x:46%; --y:74%; --s:32; --r:14deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+    <div class="blume bluete rosa" style="--x:15%; --y:91%; --s:34; --r:-10deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete" style="--x:36%; --y:88%; --s:11; --r:15deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete" style="--x:38%; --y:96%; --s:15; --r:-20deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete" style="--x:53%; --y:93%; --s:22; --r:5deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume margerite" style="--x:86%; --y:96%; --s:50; --r:170deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
   <main class="card">
     <div class="card-inner">
       <header class="header">
