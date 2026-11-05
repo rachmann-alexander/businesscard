@@ -199,13 +199,17 @@
        --s steuert die Größe, --r die Drehung.
        ========================================================= */
     :root {
-      --grund:    #e9e3de;
+      --grund:    #e6eddf;
       --rot:      #cb3e32;
       --rosa:     #f2bccb;
       --gelb:     #f2dc68;
       --blau:     #3443b4;
       --hellblau: #a9b2d2;
       --eisblau:  #e1e8f6;
+      --orange:   #e9873c;
+      --lila:     #9163b5;
+      --tuerkis:  #53a99a;
+      --magenta:  #d65b91;
       --gruen:    #5b8450;
       --weiss:    #ffffff;
     }
@@ -270,11 +274,19 @@
     }
     .bluete.rosa  { --blatt: var(--rosa); --mitte: var(--rot); --m: 44%; }
     .bluete.klein { --blatt: var(--hellblau); --mitte: var(--eisblau); --m: 12%; }
+    .bluete.orange { --blatt: var(--orange); --mitte: var(--gelb); }
+    .bluete.lila { --blatt: var(--lila); --mitte: var(--rosa); }
+    .bluete.tuerkis { --blatt: var(--tuerkis); --mitte: var(--gelb); }
+    .bluete.magenta { --blatt: var(--magenta); --mitte: var(--gelb); }
 
     .stern {
       --n: 12; --pw: 15%; --ph: 48%; --pr: 50% / 60%; --m: 18%;
       --blatt: var(--blau); --mitte: var(--hellblau);
     }
+    .stern.orange { --blatt: var(--orange); --mitte: var(--gelb); }
+    .stern.lila { --blatt: var(--lila); --mitte: var(--rosa); }
+    .stern.tuerkis { --blatt: var(--tuerkis); --mitte: var(--gelb); }
+    .stern.magenta { --blatt: var(--magenta); --mitte: var(--rosa); }
 
     .margerite {
       --n: 9; --pw: 18%; --ph: 50%; --pr: 999px; --m: 38%;
@@ -357,6 +369,13 @@
     <div class="blume bluete rosa" style="--x:3%; --y:42%; --s:17; --r:12deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume margerite" style="--x:29%; --y:4%; --s:20; --r:-12deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete rosa" style="--x:70%; --y:5%; --s:17; --r:18deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete lila" style="--x:2%; --y:19%; --s:13; --r:15deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:98%; --y:22%; --s:15; --r:-8deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete tuerkis" style="--x:3%; --y:14%; --s:12; --r:-16deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:4%; --y:7%; --s:16; --r:8deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete lila" style="--x:21%; --y:3%; --s:13; --r:-20deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete tuerkis" style="--x:80%; --y:3%; --s:14; --r:14deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete magenta" style="--x:98%; --y:5%; --s:18; --r:-10deg"><i></i><i></i><i></i><i></i><i></i></div>
 
     <div class="sonne" style="--x:17%; --y:35%; --s:30; --r:8deg"></div>
     <div class="blume bluete klein" style="--x:8%; --y:34%; --s:14; --r:-8deg"><i></i><i></i><i></i><i></i><i></i></div>
@@ -366,6 +385,8 @@
     <div class="blume bluete klein" style="--x:84%; --y:45%; --s:16; --r:-10deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume stern" style="--x:97%; --y:54%; --s:19; --r:14deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete klein" style="--x:9%; --y:51%; --s:16; --r:12deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete lila" style="--x:2%; --y:57%; --s:16; --r:7deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:98%; --y:48%; --s:14; --r:-15deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume stern" style="--x:58%; --y:51%; --s:44; --r:8deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume stern" style="--x:27%; --y:60%; --s:34; --r:-5deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="sonne" style="--x:86%; --y:61%; --s:26; --r:-12deg"></div>
@@ -374,6 +395,11 @@
     <div class="blume margerite" style="--x:97%; --y:83%; --s:24; --r:15deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete klein" style="--x:92%; --y:71%; --s:15; --r:-18deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete" style="--x:7%; --y:82%; --s:15; --r:14deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete magenta" style="--x:2%; --y:76%; --s:17; --r:-8deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume stern tuerkis" style="--x:98%; --y:65%; --s:18; --r:12deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:18%; --y:83%; --s:14; --r:18deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete lila" style="--x:83%; --y:87%; --s:15; --r:-12deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete tuerkis" style="--x:2%; --y:92%; --s:14; --r:11deg"><i></i><i></i><i></i><i></i><i></i></div>
 
     <div class="blume bluete rosa" style="--x:15%; --y:91%; --s:34; --r:-10deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete" style="--x:36%; --y:88%; --s:11; --r:15deg"><i></i><i></i><i></i><i></i><i></i></div>
@@ -382,6 +408,12 @@
     <div class="blume bluete klein" style="--x:68%; --y:94%; --s:14; --r:-12deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume bluete rosa" style="--x:71%; --y:85%; --s:16; --r:9deg"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="blume margerite" style="--x:86%; --y:96%; --s:50; --r:170deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete tuerkis" style="--x:4%; --y:96%; --s:16; --r:-15deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete magenta" style="--x:27%; --y:98%; --s:14; --r:10deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:42%; --y:99%; --s:13; --r:18deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete orange" style="--x:62%; --y:99%; --s:15; --r:-6deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume bluete lila" style="--x:75%; --y:98%; --s:18; --r:15deg"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="blume stern magenta" style="--x:97%; --y:96%; --s:20; --r:-12deg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 
   <main class="card">
